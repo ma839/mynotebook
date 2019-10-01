@@ -1,0 +1,95 @@
+---
+title: "my first notebook"
+author: "minji ai"
+date: "01 10 2019"
+output:
+  html_document:
+    toc: true
+    toc_float: 
+      collapsed: true
+---
+
+Hello, Website!
+
+For more information about simple R Markdown websites, please read the documentation at https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html.
+
+Please also note that simple R Markdown sites are _not_ based on **blogdown**. They are probably good for websites with only a few Rmd documents. For larger-scale and more sophisticated websites (such as blogs), you may want to use **blogdown** instead: https://github.com/rstudio/blogdown.
+
+# Heading 1 {#head1}
+test
+
+**bold** text
+[text of link](http://rpubs.com/daco92/534224)
+
+# inserting R code chunk 
+```{r message=FALSE}
+library(tidyverse)
+pop_data <- read.csv("data/gapminder_data.csv")
+
+# creat a table with only european countries in 2007 showing countries with largest life expatancy first
+euro_data_tbl <- pop_data %>% 
+               filter(continent == "Europe" & year == 2007) %>% 
+               arrange(desc(lifeExp))
+
+```
+
+european countries in 2007 showing countries with largest life expatancy are shown below:
+
+```{r echo=FALSE}
+library(rmarkdown)
+paged_table(euro_data_tbl)
+```
+
+
+*italic* text
+^superscript^ text
+'code' text
+
+## header 2
+
+### header 3
+
+#### header 4 
+you can find more information [here](#head1)
+
+mmmmmmmmmm [^1]
+
+
+[^1]:foot number1
+
+
+## lists
+1. a
+    a. kdjfkj
+    b. subitem 2
+2. b
+3. c
+4. f
+
+<!-- do not show this on the report --> 
+
+* item 1
+* item 2
+* item 3
+
+# images 
+![this is the picture captured](img/1.jpeg)
+
+# Tables 
+
+|column 1 | column 2|
+|---------|---------|
+|item1    |    item2|
+|item3    |    item4|
+
+# blocks 
+```
+
+print ,,,, 
+
+```
+
+
+
+
+
